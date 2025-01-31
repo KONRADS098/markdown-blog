@@ -1,15 +1,29 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import os
+from urllib.parse import urlparse, urlunparse
 
 db = SQLAlchemy()
 
 def init_db(app):
     # Database configuration
     database_url = os.getenv('DATABASE_URL')
-    if database_url and database_url.startswith('postgres://'):
+    if database_url:
         # Handle Render.com's DATABASE_URL format
-        database_url = database_url.replace('postgres://', 'postgresql://', 1)
+        if database_url.startswith('postgres://'):
+            database_url = database_url.replace('postgres://', 'postgresql://', 1)
+        
+        # Parse the URL to add SSL mode
+        parsed = urlparse(database_url)
+        query = 'sslmode=require'
+        if parsed.query:
+            query = parsed.query + '&' + query
+        
+        # Reconstruct the URL with SSL mode
+        database_url = urlunparse(
+            (parsed.scheme, parsed.netloc, parsed.path, 
+             parsed.params, query, parsed.fragment)
+        )
 
     app.config['SQLALCHEMY_DATABASE_URI'] = database_url or 'sqlite:///blog.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
