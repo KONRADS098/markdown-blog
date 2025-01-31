@@ -5,7 +5,14 @@ import markdown2
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'sqlite:///blog.db')
+
+# Database configuration
+database_url = os.getenv('DATABASE_URL')
+if database_url and database_url.startswith('postgres://'):
+    # Handle Render.com's DATABASE_URL format
+    database_url = database_url.replace('postgres://', 'postgresql://', 1)
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url or 'sqlite:///blog.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -18,8 +25,12 @@ class Post(db.Model):
     def __repr__(self):
         return f'<Post {self.title}>'
 
-with app.app_context():
-    db.create_all()
+def init_db():
+    with app.app_context():
+        db.create_all()
+
+# Initialize the database
+init_db()
 
 @app.route('/')
 def index():
@@ -43,6 +54,5 @@ def create():
         return redirect(url_for('index'))
     return render_template('create.html')
 
-# Only use debug mode when running locally
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=int(os.getenv('PORT', 5000)), debug=os.getenv('FLASK_DEBUG', 'True').lower() == 'true')
