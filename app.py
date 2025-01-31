@@ -1,36 +1,18 @@
 from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
+from flask_basicauth import BasicAuth
 import markdown2
 import os
+from common.database import db, Post, init_db
 
 app = Flask(__name__)
 
-# Database configuration
-database_url = os.getenv('DATABASE_URL')
-if database_url and database_url.startswith('postgres://'):
-    # Handle Render.com's DATABASE_URL format
-    database_url = database_url.replace('postgres://', 'postgresql://', 1)
+# Basic Auth configuration
+app.config['BASIC_AUTH_USERNAME'] = os.getenv('ADMIN_USERNAME', 'admin')
+app.config['BASIC_AUTH_PASSWORD'] = os.getenv('ADMIN_PASSWORD', 'change-me-in-production')
+app.config['BASIC_AUTH_FORCE'] = True
 
-app.config['SQLALCHEMY_DATABASE_URI'] = database_url or 'sqlite:///blog.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
-
-class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    content = db.Column(db.Text, nullable=False)
-    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-
-    def __repr__(self):
-        return f'<Post {self.title}>'
-
-def init_db():
-    with app.app_context():
-        db.create_all()
-
-# Initialize the database
-init_db()
+basic_auth = BasicAuth(app)
+init_db(app)
 
 @app.route('/')
 def index():

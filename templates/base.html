@@ -41,7 +41,9 @@
 <body>
     <nav>
         <a href="{{ url_for('index') }}">Home</a>
+        {% if request.endpoint and request.endpoint.startswith('create') %}
         <a href="{{ url_for('create') }}">New Post</a>
+        {% endif %}
     </nav>
     {% block content %}{% endblock %}
 </body>
