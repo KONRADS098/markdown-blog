@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <article>
+        <h1>{{ post.title }}</h1>
+        <div class="post-date">{{ post.created_at.strftime('%B %d, %Y') }}</div>
+        <div class="content">
+            {{ content|safe }}
+        </div>
+    </article>
+{% endblock %}
