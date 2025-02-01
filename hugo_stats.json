@@ -1,0 +1,37 @@
+{
+  "htmlElements": {
+    "tags": [
+      "a",
+      "code",
+      "div",
+      "em",
+      "h1",
+      "h2",
+      "h3",
+      "header",
+      "html",
+      "img",
+      "li",
+      "link",
+      "main",
+      "meta",
+      "p",
+      "pre",
+      "script",
+      "span",
+      "strong",
+      "title",
+      "ul"
+    ],
+    "classes": [
+      "chroma",
+      "highlight",
+      "name",
+      "name-link",
+      "post-date",
+      "post-item",
+      "post-title"
+    ],
+    "ids": null
+  }
+}

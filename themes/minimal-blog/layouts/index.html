@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <p>I'm a software engineer passionate about technology, writing, and sharing knowledge. Here you'll find my thoughts and experiences on various topics, always focusing on delivering value in a clear and concise way.</p>
+
+  <h3>Short posts</h3>
+  {{ range first 5 (where (where .Site.RegularPages "Type" "posts") "Draft" false) }}
+  <div class="post-item">
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
+  </div>
+  {{ end }}
+
+  <h3>Contact</h3>
+  <p>You can find me on <a href="https://github.com/KONRADS098">GitHub</a> and <a href="https://linkedin.com/in/konrad-soko%C5%82owski/">LinkedIn</a>.</p>
+{{ end }}

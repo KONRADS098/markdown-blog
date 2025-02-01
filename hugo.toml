@@ -1,0 +1,68 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Konrad Sokołowski"
+theme = "minimal-blog"
+
+# Performance optimizations
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "robotsTXT"]
+enableGitInfo = false
+enableEmoji = false
+disableHugoGeneratorInject = true
+
+[build]
+  writeStats = true
+  
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = false
+      precision = 1
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = false
+      keepDefaultAttrVals = false
+      keepDocumentTags = false
+      keepEndTags = false
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+      keepVarNames = false
+      precision = 1
+    [minify.tdewolff.json]
+      precision = 1
+    [minify.tdewolff.svg]
+      precision = 1
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = false
+      footnote = false
+      linkify = false
+      strikethrough = false
+      table = false
+      taskList = false
+      typographer = false
+    [markup.goldmark.parser]
+      autoHeadingID = false
+      autoHeadingIDType = "github"
+      wrapStandAloneImageWithinParagraph = false
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xhtml = false
+  [markup.highlight]
+    noClasses = false
+    
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_']
+  [security.http]
+    methods = ['GET']

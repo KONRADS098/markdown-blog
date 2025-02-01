@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My Blazingly Fast Blog</title>
+    <link>//localhost:1313/posts/</link>
+    <description>Recent content in Posts on My Blazingly Fast Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 01 Feb 2025 17:12:23 +0100</lastBuildDate>
+    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Building with Hugo</title>
+      <link>//localhost:1313/posts/building-with-hugo/</link>
+      <pubDate>Sat, 01 Feb 2025 17:12:23 +0100</pubDate>
+      <guid>//localhost:1313/posts/building-with-hugo/</guid>
+      <description>&lt;p&gt;Hugo is an incredibly fast static site generator written in Go. Here&amp;rsquo;s why I chose it for my blog:&lt;/p&gt;&#xA;&lt;h2 id=&#34;speed-and-simplicity&#34;&gt;Speed and Simplicity&lt;/h2&gt;&#xA;&lt;p&gt;Hugo is blazingly fast. It can build thousands of pages in milliseconds, which makes the development experience smooth and enjoyable.&lt;/p&gt;&#xA;&lt;h2 id=&#34;markdown-support&#34;&gt;Markdown Support&lt;/h2&gt;&#xA;&lt;p&gt;One of the best features of Hugo is its native support for Markdown. This makes writing content:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Natural and intuitive&lt;/li&gt;&#xA;&lt;li&gt;Easy to version control&lt;/li&gt;&#xA;&lt;li&gt;Portable across different platforms&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;easy-deployment&#34;&gt;Easy Deployment&lt;/h2&gt;&#xA;&lt;p&gt;Because Hugo generates static files, deploying the site is as simple as copying files to a web server.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Markdown Writing Tips</title>
+      <link>//localhost:1313/posts/markdown-tips/</link>
+      <pubDate>Sat, 01 Feb 2025 17:12:23 +0100</pubDate>
+      <guid>//localhost:1313/posts/markdown-tips/</guid>
+      <description>&lt;h1 id=&#34;markdown-writing-tips&#34;&gt;Markdown Writing Tips&lt;/h1&gt;&#xA;&lt;p&gt;Here are some essential tips for writing great content in Markdown.&lt;/p&gt;&#xA;&lt;h2 id=&#34;basic-formatting&#34;&gt;Basic Formatting&lt;/h2&gt;&#xA;&lt;p&gt;Markdown makes it easy to format your text:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Use &lt;strong&gt;bold&lt;/strong&gt; with double asterisks&lt;/li&gt;&#xA;&lt;li&gt;Create &lt;em&gt;italic&lt;/em&gt; text with single asterisks&lt;/li&gt;&#xA;&lt;li&gt;Make &lt;code&gt;code&lt;/code&gt; with backticks&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;headers&#34;&gt;Headers&lt;/h2&gt;&#xA;&lt;p&gt;Headers are created with hashtags:&lt;/p&gt;&#xA;&lt;h1 id=&#34;h1-header&#34;&gt;H1 Header&lt;/h1&gt;&#xA;&lt;h2 id=&#34;h2-header&#34;&gt;H2 Header&lt;/h2&gt;&#xA;&lt;h3 id=&#34;h3-header&#34;&gt;H3 Header&lt;/h3&gt;&#xA;&lt;h2 id=&#34;code-blocks&#34;&gt;Code Blocks&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;hello_world&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Hello, Markdown!&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;links-and-images&#34;&gt;Links and Images&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://example.com&#34;&gt;Link to external site&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;img src=&#34;image.jpg&#34; alt=&#34;Alt text for images&#34;&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Hello World</title>
+      <link>//localhost:1313/posts/hello-world/</link>
+      <pubDate>Sat, 01 Feb 2025 17:02:47 +0100</pubDate>
+      <guid>//localhost:1313/posts/hello-world/</guid>
+      <description>&lt;h1 id=&#34;welcome-to-my-blog&#34;&gt;Welcome to My Blog&lt;/h1&gt;&#xA;&lt;p&gt;This is my first blog post on my new blazingly fast Hugo-powered blog. This blog is designed with performance in mind, delivering content to readers with incredible speed.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-i-created-this-blog&#34;&gt;Why I Created This Blog&lt;/h2&gt;&#xA;&lt;p&gt;I wanted a platform that:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Loads instantly&lt;/li&gt;&#xA;&lt;li&gt;Focuses on content&lt;/li&gt;&#xA;&lt;li&gt;Keeps things simple&lt;/li&gt;&#xA;&lt;li&gt;Provides a great reading experience&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;technical-details&#34;&gt;Technical Details&lt;/h2&gt;&#xA;&lt;p&gt;This blog is built with:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Hugo (for lightning-fast static site generation)&lt;/li&gt;&#xA;&lt;li&gt;Pure HTML and CSS (no JavaScript bloat)&lt;/li&gt;&#xA;&lt;li&gt;Markdown (for easy content creation)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Stay tuned for more posts!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
