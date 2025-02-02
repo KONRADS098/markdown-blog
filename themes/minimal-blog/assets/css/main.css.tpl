@@ -39,16 +39,13 @@ header, main {
 
 .name {
   font-family: var(--header-font);
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
   font-weight: 500;
-  letter-spacing: -0.02em;
 }
 
 h1, h2, h3, .post-title {
   font-family: var(--header-font);
   font-weight: 500;
-  letter-spacing: -0.02em;
 }
 
 h1, .post-title {
