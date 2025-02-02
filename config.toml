@@ -34,7 +34,7 @@
   # Date format (uses Go's date formatting)
   dateFormat = "January 2, 2006"
 
-baseURL = "/"
+baseURL = "https://konrads098.github.io/markdown-blog/"
 title = "Konrad Sokołowski"
 languageCode = "en"
 theme = "minimal-blog"
