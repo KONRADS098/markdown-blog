@@ -2,7 +2,7 @@
   <p>I'm a software engineer passionate about technology, writing, and sharing knowledge. Here you'll find my thoughts and experiences on various topics, always focusing on delivering value in a clear and concise way.</p>
 
   <h3>Short posts</h3>
-  {{ range first 5 (where (where .Site.RegularPages "Type" "posts") "Draft" false) }}
+  {{ range first 5 (where .Site.RegularPages "Draft" false) }}
   <div class="post-item">
     <a href="{{ .RelPermalink }}">{{ .Title }}</a>
     <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>

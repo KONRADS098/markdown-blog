@@ -6,8 +6,6 @@
       [markup.goldmark.parser.attribute]
         block = true
         title = true
-      autoHeadingID = true
-      autoHeadingIDType = "github"
 
   [markup.goldmark.extensions]
     definitionList = true
@@ -19,7 +17,7 @@
     typographer = true
 
 [params]
-  mainSections = ["posts"]
+  mainSections = [""]  # Empty string means root content directory
   # Theme colors
   backgroundColor = "#f7f3f0"
   textColor = "#2d3436"
