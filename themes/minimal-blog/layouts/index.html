@@ -19,6 +19,7 @@
       {{ range first 5 (where .Site.RegularPages "Draft" false) }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <span class="post-date"> — {{ .Date.Format "Jan 2, 2006" }}</span>
       </li>
       {{ end }}
     </ul>

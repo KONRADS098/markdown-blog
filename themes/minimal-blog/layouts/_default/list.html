@@ -2,9 +2,10 @@
 <h2>Thoughts</h2>
 <nav aria-label="Blog posts">
   <ul>
-    {{ range .Pages }}
+    {{ range where .Pages "Draft" false }}
     <li>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="post-date"> — {{ .Date.Format "Jan 2, 2006" }}</span>
     </li>
     {{ end }}
   </ul>

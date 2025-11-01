@@ -54,6 +54,7 @@ header {
 main {
   max-width: var(--max-width);
   margin: 0 auto;
+  padding-bottom: 3rem;
 }
 
 /* Typography */
@@ -118,26 +119,51 @@ a:hover {
   opacity: 0.8;
 }
 
+/* Strikethrough */
+del {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
 /* Blog posts */
 .post-item {
   margin-bottom: 0.5rem;
 }
 
 .post-date {
-  font-family: var(--header-font);
+  font-family: var(--body-font);
+  font-weight: 300;
   color: var(--secondary-color);
   font-size: 0.9rem;
   margin-bottom: 2rem;
 }
 
 /* Lists */
-ul {
+ul,
+ol {
   margin-left: 1.5rem;
   margin-bottom: 1rem;
 }
 
 li {
   margin-bottom: 0.25rem;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--text-color);
+  font-style: italic;
+  opacity: 0.9;
+}
+
+blockquote p {
+  margin-bottom: 0.5rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
 }
 
 /* Code blocks */
