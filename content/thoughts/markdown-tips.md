@@ -11,6 +11,11 @@ This is my first blog!
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
+```js
+let think = true;
+console.log("test")
+```
+
 ### Subsection I.1
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit.

@@ -1,11 +1,13 @@
+@import "syntax.css";
+
 /* Base styles */
 :root {
   --max-width: 650px;
   --text-color: #2d3436;
   --background-color: #f7f3f0;
   --secondary-color: #666;
-  --header-font: 'Playfair Display', system-ui, sans-serif;
-  --body-font: 'Playfair Display', Georgia, serif;
+  --header-font: "Playfair Display", system-ui, sans-serif;
+  --body-font: "Playfair Display", Georgia, serif;
   --content-padding: 2rem;
 }
 
@@ -15,15 +17,41 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+}
+
 body {
+  overflow-x: hidden;
+  overscroll-behavior: none;
+  width: 100%;
+  min-height: 100%;
   color: var(--text-color);
   font-family: var(--body-font);
   line-height: 1.6;
   background-color: var(--background-color);
   padding: 0 var(--content-padding);
+  touch-action: pan-y;
 }
 
-header, main {
+header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+main {
   max-width: var(--max-width);
   margin: 0 auto;
 }
@@ -31,6 +59,7 @@ header, main {
 /* Typography */
 .name-link {
   text-decoration: none;
+  color: inherit;
 }
 
 .name-link:hover {
@@ -39,32 +68,36 @@ header, main {
 
 .name {
   font-family: var(--header-font);
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
-h1, h2, h3, .post-title {
+h1,
+h2,
+h3,
+.post-title {
   font-family: var(--header-font);
-  font-size: 3rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 
-h1, .post-title {
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-h2 {
+h1,
+.post-title {
   font-size: 1.5rem;
-  margin-top: 2rem;
+  font-weight: 500;
   margin-bottom: 1rem;
 }
 
-h3 {
+h2 {
   font-size: 1.2rem;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
 }
 
 p {
@@ -107,6 +140,86 @@ li {
   margin-bottom: 0.25rem;
 }
 
+/* Code blocks */
+code {
+  font-family: "Menlo", "Monaco", "Courier New", monospace;
+  font-size: 0.85em;
+}
+
+:not(pre) > code {
+  background-color: rgba(0, 0, 0, 0.06);
+  padding: 0.15em 0.4em;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+pre code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* View all link */
+.view-all-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+/* Social icons */
+.links-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.icon-link:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+.icon-link svg {
+  display: block;
+}
+
+/* Accessibility - Skip to content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--text-color);
+  color: var(--background-color);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* Responsive */
 @media (max-width: 700px) {
   :root {
@@ -116,14 +229,22 @@ li {
   body {
     font-size: 16px;
   }
-  
-  .name {
-    font-family: var(--header-font);
-    font-size: 1.8rem;
-    margin-bottom: 1.8rem;
+
+  header {
+    padding-top: 2rem;
+    margin-bottom: 1.5rem;
   }
-  
-  h1, .post-title {
-    font-size: 2.8rem;
+
+  .name {
+    font-size: 1.1rem;
+  }
+
+  h1,
+  .post-title {
+    font-size: 1.4rem;
+  }
+
+  h2 {
+    font-size: 1.15rem;
   }
 }

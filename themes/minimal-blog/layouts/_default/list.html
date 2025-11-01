@@ -1,8 +1,12 @@
 {{ define "main" }}
-  {{ range .Pages }}
-    <div class="post-item">
+<h2>Thoughts</h2>
+<nav aria-label="Blog posts">
+  <ul>
+    {{ range .Pages }}
+    <li>
       <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <span class="post-date">{{ .Date.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</span>
-    </div>
-  {{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</nav>
 {{ end }}

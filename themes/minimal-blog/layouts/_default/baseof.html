@@ -1,14 +1,53 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
-<head>
-  {{ partialCached "head.html" . }}
-</head>
-<body>
-  <header>
-    {{ partialCached "header.html" . }}
-  </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-</body>
+  <head>
+    {{ partialCached "head.html" . }}
+  </head>
+  <body>
+    {{/* Skip to main content link for accessibility */}}
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header role="banner">{{ partialCached "header.html" . }}</header>
+
+    <main id="main-content" role="main">{{ block "main" . }}{{ end }}</main>
+
+    {{/* Structured Data */}} {{ if .IsPage }}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": {{ .Title | jsonify }},
+        "datePublished": {{ .Date.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+        "dateModified": {{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" | jsonify }},
+        "author": {
+          "@type": "Person",
+          "name": {{ .Site.Title | jsonify }},
+          "url": {{ .Site.BaseURL | jsonify }}
+        },
+        "publisher": {
+          "@type": "Person",
+          "name": {{ .Site.Title | jsonify }}
+        },
+        "description": {{ if .Description }}{{ .Description | jsonify }}{{ else }}{{ .Summary | plainify | jsonify }}{{ end }},
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": {{ .Permalink | jsonify }}
+        }
+      }
+    </script>
+    {{ else if .IsHome }}
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": {{ .Site.Title | jsonify }},
+        "url": {{ .Site.BaseURL | jsonify }},
+        "author": {
+          "@type": "Person",
+          "name": {{ .Site.Title | jsonify }}
+        }
+      }
+    </script>
+    {{ end }}
+  </body>
 </html>

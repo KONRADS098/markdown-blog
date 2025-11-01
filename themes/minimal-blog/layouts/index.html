@@ -1,14 +1,24 @@
 {{ define "main" }}
-  <p>I'm a software engineer passionate about technology, writing, and sharing knowledge. Here you'll find my thoughts and experiences on various topics, always focusing on delivering value in a clear and concise way.</p>
+<section aria-label="Introduction">
+  <p>Software engineer writing concise notes on technology and craft.</p>
+</section>
 
-  <h3>Short posts</h3>
-  {{ range first 5 (where .Site.RegularPages "Draft" false) }}
-  <div class="post-item">
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-    <span class="post-date">{{ .Date.Format "January 2, 2006" }}</span>
-  </div>
-  {{ end }}
+<section aria-labelledby="recent-thoughts">
+  <h2 id="recent-thoughts">Recent thoughts</h2>
+  <nav aria-label="Recent blog posts">
+    <ul>
+      {{ range first 5 (where .Site.RegularPages "Draft" false) }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+      {{ end }}
+    </ul>
+  </nav>
 
-  <h3>Contact</h3>
-  <p>You can find me on <a href="https://github.com/KONRADS098">GitHub</a> and <a href="https://linkedin.com/in/konrad-soko%C5%82owski/">LinkedIn</a>.</p>
+  <p>
+    <a href="/thoughts/" class="view-all-link" aria-label="View all blog posts"
+      >View all thoughts →</a
+    >
+  </p>
+</section>
 {{ end }}

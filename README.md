@@ -125,6 +125,51 @@ theme = "minimal-blog"
 - **Markdown**: Focus on content, not formatting
 - **Static Files**: No server-side processing = fastest possible delivery
 
+## SEO & Accessibility Features
+
+This blog is optimized for search engines and accessibility:
+
+### SEO Optimizations
+- ✅ Semantic HTML5 elements (`<article>`, `<nav>`, `<header>`, `<main>`)
+- ✅ Meta descriptions and Open Graph tags for social sharing
+- ✅ Twitter Card support
+- ✅ Canonical URLs to prevent duplicate content
+- ✅ Structured data (JSON-LD) for rich snippets
+- ✅ Sitemap.xml and robots.txt
+- ✅ Clean, descriptive URLs
+
+### Accessibility Features
+- ✅ Proper ARIA labels and landmarks
+- ✅ Skip-to-content link for keyboard navigation
+- ✅ Semantic heading hierarchy (h1 → h2 → h3)
+- ✅ High contrast ratios for text readability
+- ✅ Focus indicators for keyboard users
+- ✅ Alt text support for images
+- ✅ `<time>` elements with machine-readable dates
+
+## Deployment
+
+### Build for Production
+```bash
+hugo --minify
+```
+
+The generated site will be in the `public/` directory.
+
+### Deploy Options
+- **Netlify**: Connect your GitHub repo for automatic deploys
+- **Vercel**: Zero-config deployment from Git
+- **GitHub Pages**: Free hosting with custom domains
+- **Cloudflare Pages**: Fast global CDN
+- **Any static host**: Just upload the `public/` folder
+
+## Performance Tips
+
+1. **Images**: Place images in `static/images/` and reference with `/images/filename.jpg`
+2. **Minification**: Use `hugo --minify` for production builds
+3. **Caching**: Configure proper cache headers on your hosting provider
+4. **CDN**: Use a CDN for global distribution
+
 ## License
 
 MIT License

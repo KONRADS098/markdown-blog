@@ -2,27 +2,48 @@
   "htmlElements": {
     "tags": [
       "a",
+      "article",
+      "circle",
       "div",
       "h1",
       "h2",
       "h3",
       "header",
       "html",
+      "li",
       "link",
       "main",
       "meta",
+      "nav",
       "p",
+      "path",
+      "pre",
+      "rect",
       "script",
+      "section",
       "span",
-      "title"
+      "svg",
+      "time",
+      "title",
+      "ul"
     ],
     "classes": [
+      "chroma",
+      "header-content",
+      "highlight",
+      "icon-link",
       "name",
       "name-link",
+      "post-content",
       "post-date",
-      "post-item",
-      "post-title"
+      "post-title",
+      "skip-link",
+      "social-links",
+      "view-all-link"
     ],
-    "ids": null
+    "ids": [
+      "main-content",
+      "recent-thoughts"
+    ]
   }
 }
