@@ -41,7 +41,7 @@ precision = 1
 
 [params]
 mainSections = ["thoughts"]
-description = "Software engineer writing concise notes on technology and craft."
+description = "Direct thoughts, zero fluff. Working on context engineering for AI coding agents at Mendix."
 
 # Theme colors
 backgroundColor = "#f7f3f0"
