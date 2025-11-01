@@ -49,8 +49,8 @@ textColor = "#2d3436"
 secondaryColor = "#666666"
 
 # Typography
-headerFont = "'Playfair Display', system-ui, sans-serif"
-bodyFont = "'Playfair Display', Georgia, serif"
+headerFont = "'DM Sans', system-ui, sans-serif"
+bodyFont = "'Newsreader', Georgia, serif"
 
 # Layout
 maxWidth = "650px"
