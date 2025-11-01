@@ -1,5 +1,5 @@
-baseURL = "/"
-languageCode = "en-us"
+baseURL = "https://konradsokolowski.com/"
+languageCode = "en"
 title = "Konrad Sokołowski"
 theme = "minimal-blog"
 
@@ -38,6 +38,26 @@ precision = 1
 precision = 1
 [minify.tdewolff.svg]
 precision = 1
+
+[params]
+mainSections = ["thoughts"]
+description = "Software engineer writing concise notes on technology and craft."
+
+# Theme colors
+backgroundColor = "#f7f3f0"
+textColor = "#2d3436"
+secondaryColor = "#666666"
+
+# Typography
+headerFont = "'Playfair Display', system-ui, sans-serif"
+bodyFont = "'Playfair Display', Georgia, serif"
+
+# Layout
+maxWidth = "650px"
+contentPadding = "2rem"
+
+# Date format (uses Go's date formatting)
+dateFormat = "January 2, 2006"
 
 [markup]
 defaultMarkdownHandler = "goldmark"

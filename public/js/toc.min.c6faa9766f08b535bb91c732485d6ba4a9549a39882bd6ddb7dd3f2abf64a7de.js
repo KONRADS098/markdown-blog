@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("#TableOfContents a").forEach(e=>{e.addEventListener("click",t=>{t.preventDefault();const n=e.getAttribute("href"),o=n.startsWith("#")?n.slice(1):n,s=document.getElementById(o);s&&s.scrollIntoView({behavior:"smooth"})})})})
