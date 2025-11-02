@@ -8,6 +8,8 @@ $seriesName }} {{ if .Params.series_order }} {{ $seriesPages = $seriesPages |
 append . }} {{ end }} {{ end }} {{ $seriesPages = sort $seriesPages
 "Params.series_order" }} {{ $totalParts := len $seriesPages }}
 
+<!-- Only show series navigation if there's more than one part -->
+{{ if gt $totalParts 1 }}
 <nav
   class="series-nav"
   aria-label="Series navigation"
@@ -37,4 +39,4 @@ append . }} {{ end }} {{ end }} {{ $seriesPages = sort $seriesPages
     {{ end }}
   </ol>
 </nav>
-{{ end }}
+{{ end }} {{ end }}

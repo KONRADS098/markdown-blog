@@ -76,7 +76,7 @@ enable = true
 block = [['\[', '\]'], ['$$', '$$']]
 inline = [['\(', '\)'], ['$', '$']]
 [markup.goldmark.parser]
-autoHeadingID = false
+autoHeadingID = true
 autoHeadingIDType = "github"
 wrapStandAloneImageWithinParagraph = false
 [markup.goldmark.renderer]

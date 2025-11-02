@@ -1,5 +1,5 @@
 +++
-title = "Context Engineering: The Stack"
+title = "The Stack"
 date = "2025-11-02T11:00:00+01:00"
 description = "How to maximize signal in context through retrieval, ranking, and pruning. Learn when to front-load versus lazy-load, and how progressive disclosure keeps context lean."
 draft = false
@@ -9,8 +9,6 @@ series_order = 2
 <div class="tldr">
 <strong>TLDR:</strong> Context engineering has three layers: <mark>retrieval</mark> (find relevant content), <mark>ranking</mark> (surface high-signal content first), and <mark>pruning</mark> (remove noise). Load context based on certainty. <mark>Front-load</mark> when probability is high, <mark>lazy-load</mark> when uncertain. <mark>ReAct prompting</mark> succeeds because it lazy-loads signal on-demand.
 </div>
-
-> This is part 2 of a series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/) or jump to [Start Simple: Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/).
 
 Context engineering is about extracting <mark>signal</mark> from noise. Signal is task-relevant information. Context is everything loaded into the agent's window.
 
@@ -62,5 +60,5 @@ Context engineering scales linearly. Better retrieval, better ranking, better pr
 
 But what about architectural complexity? That's where things get interesting.
 
-In [Start Simple: Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/), we'll explore why simple architectures with exceptional context engineering beat complex multi-agent systems, and when coordination complexity is actually justified.
+In [Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/), we'll explore why simple architectures with exceptional context engineering beat complex multi-agent systems, and when coordination complexity is actually justified.
 

@@ -24,6 +24,7 @@
       "ol",
       "p",
       "path",
+      "pre",
       "rect",
       "script",
       "section",
@@ -35,8 +36,10 @@
       "ul"
     ],
     "classes": [
+      "chroma",
       "current",
       "header-content",
+      "highlight",
       "icon-link",
       "name",
       "name-link",
@@ -58,7 +61,26 @@
       "you-are-here"
     ],
     "ids": [
-      "main-content"
+      "building-with-hugo-simple-fast-powerful",
+      "context-engineering-scales",
+      "main-content",
+      "the-architecture",
+      "the-complexity-trap",
+      "the-coordination-tax",
+      "the-result",
+      "the-stack",
+      "the-templates",
+      "the-timing-problem",
+      "the-winning-pattern",
+      "weve-solved-this-before",
+      "what-i-built",
+      "what-this-looks-like-in-practice",
+      "what-we-built",
+      "what-you-dont-need",
+      "whats-next",
+      "when-multi-agents-actually-help",
+      "when-signal-fails",
+      "why-hugo"
     ]
   }
 }

@@ -52,6 +52,6 @@ Even specialized models trained with reinforcement learning don't escape this. B
 
 Signal is the bottleneck. But how do you extract it? That's where context engineering comes in.
 
-In [Context Engineering: The Stack](/thoughts/context-engineering-series/02-the-stack/), we'll explore the three layers that maximize signal: retrieval, ranking, and pruning. We'll cover when to front-load context versus lazy-load it, and how to implement progressive disclosure in practice.
+In [The Stack](/thoughts/context-engineering-series/02-the-stack/), we'll explore the three layers that maximize signal: retrieval, ranking, and pruning. We'll cover when to front-load context versus lazy-load it, and how to implement progressive disclosure in practice.
 
-Then in [Start Simple: Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/), we'll look at why simple architectures beat complex multi-agent systems when context engineering is done right.
+Then in [Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/), we'll look at why simple architectures beat complex multi-agent systems when context engineering is done right.
