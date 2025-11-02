@@ -41,7 +41,7 @@ precision = 1
 
 [params]
 mainSections = ["thoughts"]
-description = "Direct thoughts, zero fluff. Working on context engineering for AI coding agents at Mendix."
+description = "Direct thoughts, zero fluff. Currently Working on solving context engineering problems for AI coding agents at Mendix."
 
 # Theme colors
 backgroundColor = "#f7f3f0"
@@ -70,6 +70,11 @@ strikethrough = true
 table = false
 taskList = false
 typographer = false
+[markup.goldmark.extensions.passthrough]
+enable = true
+[markup.goldmark.extensions.passthrough.delimiters]
+block = [['\[', '\]'], ['$$', '$$']]
+inline = [['\(', '\)'], ['$', '$']]
 [markup.goldmark.parser]
 autoHeadingID = false
 autoHeadingIDType = "github"

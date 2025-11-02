@@ -125,6 +125,32 @@ del {
   opacity: 0.6;
 }
 
+/* Highlighted text */
+mark {
+  background-color: #fff3cd;
+  padding: 0.1em 0.2em;
+  border-radius: 2px;
+  font-weight: 500;
+}
+
+/* TLDR Callout */
+.tldr {
+  background-color: #f0ede9;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  font-weight: 500;
+  font-size: 1.1em;
+  line-height: 1.5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tldr strong {
+  font-weight: 900;
+  font-size: 1.1em;
+}
+
 /* Blog posts */
 .post-item {
   margin-bottom: 0.5rem;
@@ -136,6 +162,14 @@ del {
   color: var(--secondary-color);
   font-size: 0.9rem;
   margin-bottom: 2rem;
+}
+
+.draft-badge {
+  font-family: var(--header-font);
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: #e17055;
+  margin-left: 0.5rem;
 }
 
 /* Lists */

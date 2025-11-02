@@ -11,19 +11,18 @@
       "em",
       "h1",
       "h2",
-      "h3",
       "header",
       "hr",
       "html",
       "li",
       "link",
       "main",
+      "mark",
       "meta",
       "nav",
       "ol",
       "p",
       "path",
-      "pre",
       "rect",
       "script",
       "section",
@@ -35,9 +34,7 @@
       "ul"
     ],
     "classes": [
-      "chroma",
       "header-content",
-      "highlight",
       "icon-link",
       "name",
       "name-link",
@@ -45,6 +42,7 @@
       "post-date",
       "post-title",
       "social-links",
+      "tldr",
       "view-all-link"
     ],
     "ids": [

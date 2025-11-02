@@ -1,8 +1,8 @@
 {{ define "main" }}
 <section aria-label="Introduction">
   <p>
-    👋 Direct thoughts, zero fluff. Working on context engineering for AI coding
-    agents at
+    👋 Direct thoughts, zero fluff. Currently Working on solving context
+    engineering problems for AI coding agents at
     <a
       href="https://www.mendix.com/platform/ai/aiad/"
       target="_blank"
@@ -16,10 +16,13 @@
   <h2 id="recent-thoughts">Recent thoughts</h2>
   <nav aria-label="Recent blog posts">
     <ul>
-      {{ range first 5 (where .Site.RegularPages "Draft" false) }}
+      {{ range first 5 (where .Site.RegularPages "Section" "thoughts") }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="post-date"> — {{ .Date.Format "Jan 2, 2006" }}</span>
+        <span class="post-date">
+          — {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span
+        >
+        {{ if .Draft }}<span class="draft-badge">[DRAFT]</span>{{ end }}
       </li>
       {{ end }}
     </ul>
