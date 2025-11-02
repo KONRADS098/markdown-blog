@@ -10,8 +10,12 @@
       </p>
     </header>
     
+    {{ partial "series-nav.html" . }}
+    
     <div class="post-content">
       {{ .Content }}
     </div>
+    
+    {{ partial "series-nav.html" . }}
   </article>
 {{ end }}

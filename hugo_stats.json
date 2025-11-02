@@ -11,6 +11,7 @@
       "em",
       "h1",
       "h2",
+      "h3",
       "header",
       "hr",
       "html",
@@ -34,6 +35,7 @@
       "ul"
     ],
     "classes": [
+      "current",
       "header-content",
       "icon-link",
       "name",
@@ -41,13 +43,22 @@
       "post-content",
       "post-date",
       "post-title",
+      "series-current",
+      "series-group",
+      "series-group-list",
+      "series-group-title",
+      "series-header",
+      "series-item",
+      "series-label",
+      "series-list",
+      "series-name",
+      "series-nav",
       "social-links",
       "tldr",
-      "view-all-link"
+      "you-are-here"
     ],
     "ids": [
-      "main-content",
-      "recent-thoughts"
+      "main-content"
     ]
   }
 }

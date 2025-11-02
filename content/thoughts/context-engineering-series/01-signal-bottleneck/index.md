@@ -3,6 +3,7 @@ title = "Signal Is the Bottleneck"
 date = "2025-11-02T10:00:00+01:00"
 description = "Context engineering is about extracting signal from noise. The problem isn't context window size. It's ensuring signal is present and prominent when the agent needs it."
 draft = false
+series_order = 1
 +++
 
 <div class="tldr">
@@ -51,6 +52,6 @@ Even specialized models trained with reinforcement learning don't escape this. B
 
 Signal is the bottleneck. But how do you extract it? That's where context engineering comes in.
 
-In [Context Engineering: The Stack](/thoughts/context-engineering-stack/), we'll explore the three layers that maximize signal: retrieval, ranking, and pruning. We'll cover when to front-load context versus lazy-load it, and how to implement progressive disclosure in practice.
+In [Context Engineering: The Stack](/thoughts/context-engineering-series/02-the-stack/), we'll explore the three layers that maximize signal: retrieval, ranking, and pruning. We'll cover when to front-load context versus lazy-load it, and how to implement progressive disclosure in practice.
 
-Then in [Start Simple: Why Single Agents Win](/thoughts/start-simple-single-agents/), we'll look at why simple architectures beat complex multi-agent systems when context engineering is done right.
+Then in [Start Simple: Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/), we'll look at why simple architectures beat complex multi-agent systems when context engineering is done right.

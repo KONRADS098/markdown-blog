@@ -3,15 +3,16 @@ title = "Start Simple: Why Single Agents Win"
 date = "2025-11-02T12:00:00+01:00"
 description = "Simple architectures with exceptional context engineering beat complex multi-agent systems. Learn when to use single agents, sub-agents, and when multi-agent coordination is actually justified."
 draft = false
+series_order = 3
 +++
 
 <div class="tldr">
 <strong>TLDR:</strong> The best coding agents are simple `while(tool_use)` loops with exceptional context engineering. Multi-agent systems introduce coordination overhead, cascading failures, and state synchronization problems. <mark>Start simple</mark>. Master context engineering first. Add coordination only when you've exhausted single-agent optimization.
 </div>
 
-> This is part 3 of a series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/signal-is-the-bottleneck/) or read [Context Engineering: The Stack](/thoughts/context-engineering-stack/) first.
+> This is part 3 of a series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/) or read [Context Engineering: The Stack](/thoughts/context-engineering-series/02-the-stack/) first.
 
-Context engineering is about extracting <mark>signal</mark> from noise. We've covered [why signal is the bottleneck](/thoughts/signal-is-the-bottleneck/) and [how to maximize it through retrieval, ranking, and pruning](/thoughts/context-engineering-stack/).
+Context engineering is about extracting <mark>signal</mark> from noise. We've covered [why signal is the bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/) and [how to maximize it through retrieval, ranking, and pruning](/thoughts/context-engineering-series/02-the-stack/).
 
 Now let's talk about why simple architectures win.
 
@@ -53,4 +54,4 @@ Start simple. Master signal first.
 ---
 </br>
 
-*This concludes the series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/signal-is-the-bottleneck/) or explore [Context Engineering: The Stack](/thoughts/context-engineering-stack/).*
+*This concludes the series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/) or explore [Context Engineering: The Stack](/thoughts/context-engineering-series/02-the-stack/).*

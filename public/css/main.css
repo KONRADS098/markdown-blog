@@ -172,6 +172,115 @@ mark {
   margin-left: 0.5rem;
 }
 
+/* Series badges in listings */
+.series-badge {
+  font-family: var(--header-font);
+  font-weight: 600;
+  font-size: 0.7rem;
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  margin-left: 0.5rem;
+  display: inline-block;
+  vertical-align: middle;
+  /* Color is set inline from frontmatter */
+}
+
+/* Series grouping on list page */
+.series-group {
+  border-left: 3px solid;
+  /* border color set inline from series_color */
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+}
+
+.series-group-title {
+  font-family: var(--header-font);
+  font-weight: 600;
+  font-size: 1rem;
+  /* color set inline from series_color */
+  margin-bottom: 0.75rem;
+}
+
+.series-group-list {
+  list-style: decimal;
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+}
+
+.series-group-list li {
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+/* Series Navigation */
+.series-nav {
+  border-left: 3px solid;
+  /* border color set inline from series_color */
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+}
+
+.series-header {
+  margin-bottom: 0.75rem;
+}
+
+.series-label {
+  font-family: var(--header-font);
+  font-weight: 600;
+  font-size: 0.8rem;
+  /* color set inline from series_color */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.series-name {
+  font-family: var(--header-font);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-top: 0.15rem;
+}
+
+.series-list {
+  list-style: none;
+  margin: 0.5rem 0 0 0;
+  padding: 0;
+}
+
+.series-item {
+  margin: 0.4rem 0;
+  padding: 0;
+  font-size: 0.95rem;
+}
+
+.series-item a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.2s ease;
+}
+
+.series-item a:hover {
+  color: #0984e3;
+  text-decoration: underline;
+}
+
+.series-item.current {
+  font-weight: 500;
+}
+
+.series-current {
+  color: var(--text-color);
+}
+
+.you-are-here {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-left: 0.35rem;
+}
+
 /* Lists */
 ul,
 ol {

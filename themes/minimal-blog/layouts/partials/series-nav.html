@@ -1,0 +1,40 @@
+{{ if .Params.series }} {{ $currentPage := . }} {{ $seriesName := .Params.series
+}} {{ $currentOrder := .Params.series_order }} {{ $seriesColor :=
+.Params.series_color | default "#0984e3" }}
+
+<!-- Get all pages in this series and sort by series_order -->
+{{ $seriesPages := slice }} {{ range where .Site.RegularPages "Params.series"
+$seriesName }} {{ if .Params.series_order }} {{ $seriesPages = $seriesPages |
+append . }} {{ end }} {{ end }} {{ $seriesPages = sort $seriesPages
+"Params.series_order" }} {{ $totalParts := len $seriesPages }}
+
+<nav
+  class="series-nav"
+  aria-label="Series navigation"
+  style="border-left-color: {{ $seriesColor }};"
+>
+  <div class="series-header">
+    <span class="series-label" style="color: {{ $seriesColor }};"
+      >Part {{ $currentOrder }} of {{ $totalParts }}</span
+    >
+    <span class="series-name">{{ $seriesName }} Series</span>
+  </div>
+
+  <ol class="series-list">
+    {{ range $seriesPages }}
+    <li
+      class="series-item{{ if eq .RelPermalink $currentPage.RelPermalink }} current{{ end }}"
+    >
+      {{ if eq .RelPermalink $currentPage.RelPermalink }}
+      <span class="series-current"
+        >{{ .Params.series_order }}. {{ .Title }}
+        <span class="you-are-here">(You are here)</span></span
+      >
+      {{ else }}
+      <a href="{{ .RelPermalink }}">{{ .Params.series_order }}. {{ .Title }}</a>
+      {{ end }}
+    </li>
+    {{ end }}
+  </ol>
+</nav>
+{{ end }}

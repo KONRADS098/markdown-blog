@@ -12,11 +12,52 @@
   </p>
 </section>
 
-<section aria-labelledby="recent-thoughts">
-  <h2 id="recent-thoughts">Recent thoughts</h2>
-  <nav aria-label="Recent blog posts">
+<section aria-label="Blog posts">
+  {{ $regularPosts := slice }} {{ $seriesPosts := slice }} {{ $processedSeries
+  := slice }}
+
+  <!-- Get all posts in the thoughts section -->
+  {{ $allThoughtsPosts := where .Site.RegularPages "Section" "thoughts" }}
+
+  <!-- Separate series posts from regular posts -->
+  {{ range $allThoughtsPosts }} {{ if and .Params.series .Params.series_order }}
+  {{ $seriesPosts = $seriesPosts | append . }} {{ else }} {{ $regularPosts =
+  $regularPosts | append . }} {{ end }} {{ end }}
+
+  <nav aria-label="Blog posts">
+    <!-- Group series posts -->
+    {{ range $seriesPosts }} {{ $seriesName := .Params.series }} {{ if not (in
+    $processedSeries $seriesName) }} {{ $processedSeries = $processedSeries |
+    append $seriesName }}
+
+    <!-- Get all posts in this series -->
+    {{ $currentSeriesPosts := where $seriesPosts "Params.series" $seriesName }}
+    {{ $sortedSeriesPosts := sort $currentSeriesPosts "Params.series_order" }}
+    {{ $seriesColor := .Params.series_color | default "#0984e3" }}
+
+    <div class="series-group" style="border-left-color: {{ $seriesColor }};">
+      <h3 class="series-group-title" style="color: {{ $seriesColor }};">
+        {{ $seriesName }} Series
+      </h3>
+      <ol class="series-group-list">
+        {{ range $sortedSeriesPosts }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          <span class="post-date">
+            — {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min
+            read</span
+          >
+          {{ if .Draft }}<span class="draft-badge">[DRAFT]</span>{{ end }}
+        </li>
+        {{ end }}
+      </ol>
+    </div>
+    {{ end }} {{ end }}
+
+    <!-- Regular non-series posts -->
+    {{ if gt (len $regularPosts) 0 }}
     <ul>
-      {{ range first 5 (where .Site.RegularPages "Section" "thoughts") }}
+      {{ range $regularPosts }}
       <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         <span class="post-date">
@@ -26,12 +67,7 @@
       </li>
       {{ end }}
     </ul>
+    {{ end }}
   </nav>
-
-  <p>
-    <a href="/thoughts/" class="view-all-link" aria-label="View all blog posts"
-      >View all thoughts →</a
-    >
-  </p>
 </section>
 {{ end }}
