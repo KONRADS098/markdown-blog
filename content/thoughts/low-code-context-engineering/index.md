@@ -1,8 +1,8 @@
 ---
 title: "Context Engineering in Low-Code Platforms"
 date: 2025-11-02T10:00:00Z
-draft: true
 tags: ["ai", "low-code", "context-engineering", "llms"]
+draft: true
 ---
 
 <div class="tldr">

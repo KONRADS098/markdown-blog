@@ -2,7 +2,6 @@
 title = "The Stack"
 date = "2025-11-02T11:00:00+01:00"
 description = "How to maximize signal in context through retrieval, ranking, and pruning. Learn when to front-load versus lazy-load, and how progressive disclosure keeps context lean."
-draft = false
 series_order = 2
 +++
 

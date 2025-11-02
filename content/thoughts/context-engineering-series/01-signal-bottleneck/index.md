@@ -2,7 +2,6 @@
 title = "Signal Is the Bottleneck"
 date = "2025-11-02T10:00:00+01:00"
 description = "Context engineering is about extracting signal from noise. The problem isn't context window size. It's ensuring signal is present and prominent when the agent needs it."
-draft = false
 series_order = 1
 +++
 

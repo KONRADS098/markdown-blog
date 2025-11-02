@@ -2,7 +2,6 @@
 title = "Why Single Agents Win"
 date = "2025-11-02T12:00:00+01:00"
 description = "Simple architectures with exceptional context engineering beat complex multi-agent systems. Learn when to use single agents, sub-agents, and when multi-agent coordination is actually justified."
-draft = false
 series_order = 3
 +++
 
