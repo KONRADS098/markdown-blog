@@ -30,13 +30,12 @@
     $processedSeries $seriesName) }} {{ $processedSeries = $processedSeries |
     append $seriesName }}
 
-    <!-- Get all posts in this series -->
+    <!-- Get all published posts in this series -->
     {{ $currentSeriesPosts := where $seriesPosts "Params.series" $seriesName }}
     {{ $sortedSeriesPosts := sort $currentSeriesPosts "Params.series_order" }}
     {{ $seriesColor := .Params.series_color | default "#0984e3" }} {{
     $totalParts := .Params.series_total_parts | default 0 }} {{ $publishedParts
-    := len $sortedSeriesPosts }} {{ $hasUpcoming := and (gt $totalParts 0) (gt
-    $totalParts $publishedParts) }}
+    := len $sortedSeriesPosts }} {{ $upcomingParts := .Params.series_upcoming }}
 
     <div class="series-group" style="border-left-color: {{ $seriesColor }};">
       <h3 class="series-group-title" style="color: {{ $seriesColor }};">
@@ -51,11 +50,13 @@
             — {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min
             read</span
           >
-          {{ if .Draft }}<span class="draft-badge">[DRAFT]</span>{{ end }}
         </li>
-        {{ end }} {{ if $hasUpcoming }}
+        {{ end }} {{ range $upcomingParts }}
         <li class="series-upcoming-item">
-          <span class="series-upcoming">More parts coming soon...</span>
+          <span class="series-upcoming-title"
+            >{{ .title }}
+            <span class="coming-soon-badge">Coming soon</span></span
+          >
         </li>
         {{ end }}
       </ol>

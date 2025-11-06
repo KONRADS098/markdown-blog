@@ -1,7 +1,8 @@
 {{ if .Params.series }} {{ $currentPage := . }} {{ $seriesName := .Params.series
 }} {{ $currentOrder := .Params.series_order }} {{ $seriesColor :=
 .Params.series_color | default "#0984e3" }} {{ $totalParts :=
-.Params.series_total_parts | default 0 }}
+.Params.series_total_parts | default 0 }} {{ $upcomingParts :=
+.Params.series_upcoming }}
 
 <!-- Get all published pages in this series -->
 {{ $publishedPages := slice }} {{ range where .Site.RegularPages "Params.series"
@@ -11,8 +12,7 @@ $publishedPages "Params.series_order" }} {{ $publishedParts := len
 $publishedPages }}
 
 <!-- Determine if there are upcoming parts -->
-{{ $hasUpcoming := false }} {{ if gt $totalParts 0 }} {{ $hasUpcoming = gt
-$totalParts $publishedParts }} {{ end }}
+{{ $hasUpcoming := and $upcomingParts (gt (len $upcomingParts) 0) }}
 
 <!-- Show series navigation if there's more than one part OR if there are upcoming parts -->
 {{ if or (gt $publishedParts 1) $hasUpcoming }}
@@ -43,9 +43,12 @@ $totalParts $publishedParts }} {{ end }}
       <a href="{{ .RelPermalink }}">{{ .Params.series_order }}. {{ .Title }}</a>
       {{ end }}
     </li>
-    {{ end }} {{ if $hasUpcoming }}
+    {{ end }} {{ range $upcomingParts }}
     <li class="series-item upcoming">
-      <span class="series-upcoming">More parts coming soon...</span>
+      <span class="series-upcoming"
+        >{{ .order }}. {{ .title }}
+        <span class="coming-soon">(Coming soon)</span></span
+      >
     </li>
     {{ end }}
   </ol>

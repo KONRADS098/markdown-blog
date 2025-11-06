@@ -233,12 +233,27 @@ mark {
   padding-left: 0.5rem;
 }
 
-.series-upcoming-item {
-  list-style: none;
-  margin-left: -1.5rem;
-  margin-top: 0.75rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #e0e0e0;
+/* Upcoming/draft posts in series lists */
+.series-group-list .series-upcoming-item {
+  opacity: 0.65;
+  color: var(--secondary-color);
+}
+
+.series-upcoming-title {
+  color: var(--secondary-color);
+  cursor: default;
+}
+
+.coming-soon-badge {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+  font-style: italic;
+  margin-left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
 }
 
 /* Series Navigation */
@@ -310,16 +325,26 @@ mark {
   margin-left: 0.35rem;
 }
 
+/* Upcoming posts in series navigation */
 .series-item.upcoming {
-  margin-top: 0.75rem;
-  padding-top: 0.5rem;
-  border-top: 1px solid #e0e0e0;
+  opacity: 0.65;
 }
 
 .series-upcoming {
   color: var(--secondary-color);
+  cursor: default;
+}
+
+.coming-soon {
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
   font-style: italic;
-  font-size: 0.9rem;
+  margin-left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 0.1rem 0.4rem;
+  border-radius: 3px;
 }
 
 /* Lists */

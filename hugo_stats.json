@@ -36,6 +36,8 @@
     ],
     "classes": [
       "chroma",
+      "coming-soon",
+      "coming-soon-badge",
       "current",
       "header-content",
       "highlight",
@@ -57,6 +59,7 @@
       "series-nav",
       "series-upcoming",
       "series-upcoming-item",
+      "series-upcoming-title",
       "social-links",
       "tldr",
       "upcoming",
