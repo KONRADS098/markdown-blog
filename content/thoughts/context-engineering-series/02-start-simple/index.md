@@ -2,16 +2,15 @@
 title = "Why Single Agents Win"
 date = "2025-11-02T12:00:00+01:00"
 description = "Simple architectures with exceptional context engineering beat complex multi-agent systems. Learn when to use single agents, sub-agents, and when multi-agent coordination is actually justified."
-series_order = 3
+draft = false
+series_order = 2
 +++
 
 <div class="tldr">
 <strong>TLDR:</strong> The best coding agents are simple `while(tool_use)` loops with exceptional context engineering. Multi-agent systems introduce coordination overhead, cascading failures, and state synchronization problems. <mark>Start simple</mark>. Master context engineering first. Add coordination only when you've exhausted single-agent optimization.
 </div>
 
-Context engineering is about extracting <mark>signal</mark> from noise. We've covered [why signal is the bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/) and [how to maximize it through retrieval, ranking, and pruning](/thoughts/context-engineering-series/02-the-stack/).
-
-Now let's talk about why simple architectures win.
+> This is part 2 of a series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/).
 
 ## The Complexity Trap
 
@@ -48,7 +47,8 @@ Signal isn't optional. It's the driving factor that determines whether AI agents
 
 Start simple. Master signal first.
 
----
-</br>
+## What's Next
 
-*This concludes the series on context engineering. Start with [Signal Is the Bottleneck](/thoughts/context-engineering-series/01-signal-bottleneck/) or explore [The Stack](/thoughts/context-engineering-series/02-the-stack/).*
+Simple architectures win when context engineering is done right. But how do you actually maximize signal?
+
+The next part explores the mechanics of signal extraction. How to identify what matters, surface it at the right time, and cut what doesn't. The technical implementation of turning noise into signal.

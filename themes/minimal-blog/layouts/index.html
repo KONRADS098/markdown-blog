@@ -33,11 +33,15 @@
     <!-- Get all posts in this series -->
     {{ $currentSeriesPosts := where $seriesPosts "Params.series" $seriesName }}
     {{ $sortedSeriesPosts := sort $currentSeriesPosts "Params.series_order" }}
-    {{ $seriesColor := .Params.series_color | default "#0984e3" }}
+    {{ $seriesColor := .Params.series_color | default "#0984e3" }} {{
+    $totalParts := .Params.series_total_parts | default 0 }} {{ $publishedParts
+    := len $sortedSeriesPosts }} {{ $hasUpcoming := and (gt $totalParts 0) (gt
+    $totalParts $publishedParts) }}
 
     <div class="series-group" style="border-left-color: {{ $seriesColor }};">
       <h3 class="series-group-title" style="color: {{ $seriesColor }};">
-        {{ $seriesName }} Series
+        {{ $seriesName }} Series{{ if gt $totalParts 0 }} ({{ $publishedParts
+        }}/{{ $totalParts }} published){{ end }}
       </h3>
       <ol class="series-group-list">
         {{ range $sortedSeriesPosts }}
@@ -48,6 +52,10 @@
             read</span
           >
           {{ if .Draft }}<span class="draft-badge">[DRAFT]</span>{{ end }}
+        </li>
+        {{ end }} {{ if $hasUpcoming }}
+        <li class="series-upcoming-item">
+          <span class="series-upcoming">More parts coming soon...</span>
         </li>
         {{ end }}
       </ol>

@@ -233,6 +233,14 @@ mark {
   padding-left: 0.5rem;
 }
 
+.series-upcoming-item {
+  list-style: none;
+  margin-left: -1.5rem;
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
 /* Series Navigation */
 .series-nav {
   border-left: 3px solid;
@@ -300,6 +308,18 @@ mark {
   color: var(--secondary-color);
   font-style: italic;
   margin-left: 0.35rem;
+}
+
+.series-item.upcoming {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.series-upcoming {
+  color: var(--secondary-color);
+  font-style: italic;
+  font-size: 0.9rem;
 }
 
 /* Lists */

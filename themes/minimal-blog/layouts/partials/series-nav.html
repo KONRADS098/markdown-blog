@@ -1,15 +1,21 @@
 {{ if .Params.series }} {{ $currentPage := . }} {{ $seriesName := .Params.series
 }} {{ $currentOrder := .Params.series_order }} {{ $seriesColor :=
-.Params.series_color | default "#0984e3" }}
+.Params.series_color | default "#0984e3" }} {{ $totalParts :=
+.Params.series_total_parts | default 0 }}
 
-<!-- Get all pages in this series and sort by series_order -->
-{{ $seriesPages := slice }} {{ range where .Site.RegularPages "Params.series"
-$seriesName }} {{ if .Params.series_order }} {{ $seriesPages = $seriesPages |
-append . }} {{ end }} {{ end }} {{ $seriesPages = sort $seriesPages
-"Params.series_order" }} {{ $totalParts := len $seriesPages }}
+<!-- Get all published pages in this series -->
+{{ $publishedPages := slice }} {{ range where .Site.RegularPages "Params.series"
+$seriesName }} {{ if .Params.series_order }} {{ $publishedPages =
+$publishedPages | append . }} {{ end }} {{ end }} {{ $publishedPages = sort
+$publishedPages "Params.series_order" }} {{ $publishedParts := len
+$publishedPages }}
 
-<!-- Only show series navigation if there's more than one part -->
-{{ if gt $totalParts 1 }}
+<!-- Determine if there are upcoming parts -->
+{{ $hasUpcoming := false }} {{ if gt $totalParts 0 }} {{ $hasUpcoming = gt
+$totalParts $publishedParts }} {{ end }}
+
+<!-- Show series navigation if there's more than one part OR if there are upcoming parts -->
+{{ if or (gt $publishedParts 1) $hasUpcoming }}
 <nav
   class="series-nav"
   aria-label="Series navigation"
@@ -17,13 +23,14 @@ append . }} {{ end }} {{ end }} {{ $seriesPages = sort $seriesPages
 >
   <div class="series-header">
     <span class="series-label" style="color: {{ $seriesColor }};"
-      >Part {{ $currentOrder }} of {{ $totalParts }}</span
+      >Part {{ $currentOrder }}{{ if gt $totalParts 0 }} of {{ $totalParts }}{{
+      end }}</span
     >
     <span class="series-name">{{ $seriesName }} Series</span>
   </div>
 
   <ol class="series-list">
-    {{ range $seriesPages }}
+    {{ range $publishedPages }}
     <li
       class="series-item{{ if eq .RelPermalink $currentPage.RelPermalink }} current{{ end }}"
     >
@@ -35,6 +42,10 @@ append . }} {{ end }} {{ end }} {{ $seriesPages = sort $seriesPages
       {{ else }}
       <a href="{{ .RelPermalink }}">{{ .Params.series_order }}. {{ .Title }}</a>
       {{ end }}
+    </li>
+    {{ end }} {{ if $hasUpcoming }}
+    <li class="series-item upcoming">
+      <span class="series-upcoming">More parts coming soon...</span>
     </li>
     {{ end }}
   </ol>

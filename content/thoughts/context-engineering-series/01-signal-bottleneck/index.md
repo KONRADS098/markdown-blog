@@ -49,8 +49,6 @@ Even specialized models trained with reinforcement learning don't escape this. B
 
 ## What's Next
 
-Signal is the bottleneck. But how do you extract it? That's where context engineering comes in.
+Signal is the bottleneck. But solving it isn't about complex multi-agent systems or elaborate orchestration. The best coding agents are simple `while(tool_use)` loops with exceptional context engineering.
 
-In [The Stack](/thoughts/context-engineering-series/02-the-stack/), we'll explore the three layers that maximize signal: retrieval, ranking, and pruning. We'll cover when to front-load context versus lazy-load it, and how to implement progressive disclosure in practice.
-
-Then in [Why Single Agents Win](/thoughts/context-engineering-series/03-start-simple/), we'll look at why simple architectures beat complex multi-agent systems when context engineering is done right.
+In the next part, we'll explore why simple architectures beat complex coordination, and when single agents are the right choice.
