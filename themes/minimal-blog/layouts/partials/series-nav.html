@@ -1,6 +1,6 @@
 {{ if .Params.series }} {{ $currentPage := . }} {{ $seriesName := .Params.series
 }} {{ $currentOrder := .Params.series_order }} {{ $seriesColor :=
-.Params.series_color | default "#0984e3" }} {{ $totalParts :=
+.Params.series_color | default "#6B5B47" }} {{ $totalParts :=
 .Params.series_total_parts | default 0 }} {{ $upcomingParts :=
 .Params.series_upcoming }}
 
@@ -14,43 +14,133 @@ $publishedPages }}
 <!-- Determine if there are upcoming parts -->
 {{ $hasUpcoming := and $upcomingParts (gt (len $upcomingParts) 0) }}
 
+<!-- Calculate prev/next -->
+{{ $currentIndex := 0 }} {{ $prevPage := false }} {{ $nextPage := false }} {{
+range $index, $page := $publishedPages }} {{ if eq $page.RelPermalink
+$currentPage.RelPermalink }} {{ $currentIndex = $index }} {{ if gt $index 0 }}
+{{ $prevPage = index $publishedPages (sub $index 1) }} {{ end }} {{ if lt $index
+(sub (len $publishedPages) 1) }} {{ $nextPage = index $publishedPages (add
+$index 1) }} {{ end }} {{ end }} {{ end }}
+
 <!-- Show series navigation if there's more than one part OR if there are upcoming parts -->
 {{ if or (gt $publishedParts 1) $hasUpcoming }}
-<nav
-  class="series-nav"
-  aria-label="Series navigation"
-  style="border-left-color: {{ $seriesColor }};"
->
-  <div class="series-header">
-    <span class="series-label" style="color: {{ $seriesColor }};"
-      >Part {{ $currentOrder }}{{ if gt $totalParts 0 }} of {{ $totalParts }}{{
-      end }}</span
-    >
-    <span class="series-name">{{ $seriesName }} Series</span>
+
+<!-- Unified E-Reader Navigation Component -->
+<nav class="reader-navigation" aria-label="Chapter navigation">
+  <!-- Series Header -->
+  <div class="reader-nav-header">
+    <div class="series-info">
+      <span class="series-label" style="color: {{ $seriesColor }};"
+        >{{ $seriesName }}</span
+      >
+      <span class="chapter-position"
+        >Chapter {{ $currentOrder }}{{ if gt $totalParts 0 }} of {{ $totalParts
+        }}{{ end }}</span
+      >
+    </div>
   </div>
 
-  <ol class="series-list">
-    {{ range $publishedPages }}
-    <li
-      class="series-item{{ if eq .RelPermalink $currentPage.RelPermalink }} current{{ end }}"
+  <!-- Main Navigation: Prev/Next -->
+  <div class="reader-nav-main">
+    {{ if $prevPage }}
+    <a
+      href="{{ $prevPage.RelPermalink }}"
+      class="nav-chapter prev"
+      data-direction="prev"
     >
-      {{ if eq .RelPermalink $currentPage.RelPermalink }}
-      <span class="series-current"
-        >{{ .Params.series_order }}. {{ .Title }}
-        <span class="you-are-here">(You are here)</span></span
-      >
-      {{ else }}
-      <a href="{{ .RelPermalink }}">{{ .Params.series_order }}. {{ .Title }}</a>
-      {{ end }}
-    </li>
-    {{ end }} {{ range $upcomingParts }}
-    <li class="series-item upcoming">
-      <span class="series-upcoming"
-        >{{ .order }}. {{ .title }}
-        <span class="coming-soon">(Coming soon)</span></span
-      >
-    </li>
+      <span class="nav-arrow">←</span>
+      <div class="nav-chapter-content">
+        <span class="nav-chapter-label">Previous</span>
+        <span class="nav-chapter-title">{{ $prevPage.Title }}</span>
+        <span class="nav-chapter-meta"
+          >{{ $prevPage.ReadingTime }} min read</span
+        >
+      </div>
+    </a>
+    {{ else }}
+    <div class="nav-chapter prev disabled">
+      <span class="nav-arrow">←</span>
+      <div class="nav-chapter-content">
+        <span class="nav-chapter-label">Previous</span>
+        <span class="nav-chapter-title">—</span>
+      </div>
+    </div>
+    {{ end }} {{ if $nextPage }}
+    <a
+      href="{{ $nextPage.RelPermalink }}"
+      class="nav-chapter next"
+      data-direction="next"
+    >
+      <div class="nav-chapter-content">
+        <span class="nav-chapter-label">Next</span>
+        <span class="nav-chapter-title">{{ $nextPage.Title }}</span>
+        <span class="nav-chapter-meta"
+          >{{ $nextPage.ReadingTime }} min read</span
+        >
+      </div>
+      <span class="nav-arrow">→</span>
+    </a>
+    {{ else }}
+    <div class="nav-chapter next disabled">
+      <div class="nav-chapter-content">
+        <span class="nav-chapter-label">Next</span>
+        <span class="nav-chapter-title"
+          >{{ if $hasUpcoming }}Coming Soon{{ else }}—{{ end }}</span
+        >
+      </div>
+      <span class="nav-arrow">→</span>
+    </div>
     {{ end }}
-  </ol>
+  </div>
+
+  <!-- Expandable: All Chapters -->
+  <details class="reader-nav-chapters">
+    <summary class="chapters-toggle">
+      <span
+        >All {{ if gt $totalParts 0 }}{{ $totalParts }}{{ else }}{{
+        $publishedParts }}{{ end }} Chapters</span
+      >
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </summary>
+    <ol class="chapters-list">
+      {{ range $publishedPages }}
+      <li
+        class="chapter-item{{ if eq .RelPermalink $currentPage.RelPermalink }} active{{ end }}"
+      >
+        {{ if eq .RelPermalink $currentPage.RelPermalink }}
+        <div class="chapter-item-content">
+          <span class="chapter-num">{{ .Params.series_order }}</span>
+          <span class="chapter-name">{{ .Title }}</span>
+          <span class="chapter-current">✓</span>
+        </div>
+        {{ else }}
+        <a href="{{ .RelPermalink }}" class="chapter-item-link">
+          <span class="chapter-num">{{ .Params.series_order }}</span>
+          <span class="chapter-name">{{ .Title }}</span>
+          <span class="chapter-meta">{{ .ReadingTime }} min</span>
+        </a>
+        {{ end }}
+      </li>
+      {{ end }} {{ range $upcomingParts }}
+      <li class="chapter-item upcoming">
+        <div class="chapter-item-content">
+          <span class="chapter-num">{{ .order }}</span>
+          <span class="chapter-name">{{ .title }}</span>
+          <span class="chapter-soon">Soon</span>
+        </div>
+      </li>
+      {{ end }}
+    </ol>
+  </details>
 </nav>
+
 {{ end }} {{ end }}

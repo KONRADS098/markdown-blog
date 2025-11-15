@@ -68,7 +68,7 @@ property="article:modified_time" content="{{ .Lastmod.Format
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
-  href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700;900&family=Newsreader:wght@300;400&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Source+Code+Pro:wght@400;500;600&display=swap"
   rel="stylesheet"
 />
 {{- with resources.Get "css/main.css" }} {{- if eq hugo.Environment
@@ -111,3 +111,10 @@ property="article:modified_time" content="{{ .Lastmod.Format
 
 {{/* Heading anchor links */}}
 <script defer src="/js/headings.js"></script>
+
+{{/* E-reader features */}}
+<script defer src="/js/header-scroll.js"></script>
+<script defer src="/js/theme-toggle.js"></script>
+<script defer src="/js/reading-progress.js"></script>
+<script defer src="/js/font-controls.js"></script>
+<script defer src="/js/page-transition.js"></script>

@@ -1,64 +1,54 @@
-{{ define "main" }} {{ $regularPosts := slice }} {{ $seriesPosts := slice }} {{
-$processedSeries := slice }}
+{{ define "main" }}
+<section class="library" aria-label="All Posts">
+  {{ $regularPosts := slice }} {{ $seriesPosts := slice }} {{ $processedSeries := slice }}
 
-<!-- Get all posts in the thoughts section (including nested) -->
-{{ $allThoughtsPosts := where .Site.RegularPages "Section" "thoughts" }}
+  <!-- Get all posts in the thoughts section (including nested) -->
+  {{ $allThoughtsPosts := where .Site.RegularPages "Section" "thoughts" }}
 
-<!-- Separate series posts from regular posts -->
-{{ range $allThoughtsPosts }} {{ if and .Params.series .Params.series_order }}
-{{ $seriesPosts = $seriesPosts | append . }} {{ else }} {{ $regularPosts =
-$regularPosts | append . }} {{ end }} {{ end }}
+  <!-- Separate series posts from regular posts -->
+  {{ range $allThoughtsPosts }} {{ if and .Params.series .Params.series_order }}
+  {{ $seriesPosts = $seriesPosts | append . }} {{ else }} {{ $regularPosts =
+  $regularPosts | append . }} {{ end }} {{ end }}
 
-<nav aria-label="Blog posts">
-  <!-- Group series posts -->
+  <!-- Series Books -->
   {{ range $seriesPosts }} {{ $seriesName := .Params.series }} {{ if not (in
   $processedSeries $seriesName) }} {{ $processedSeries = $processedSeries |
   append $seriesName }}
 
   <!-- Get all published posts in this series -->
-  {{ $currentSeriesPosts := where $seriesPosts "Params.series" $seriesName }} {{
-  $sortedSeriesPosts := sort $currentSeriesPosts "Params.series_order" }} {{
-  $seriesColor := .Params.series_color | default "#0984e3" }} {{ $totalParts :=
-  .Params.series_total_parts | default 0 }} {{ $publishedParts := len
-  $sortedSeriesPosts }} {{ $upcomingParts := .Params.series_upcoming }}
+  {{ $currentSeriesPosts := where $seriesPosts "Params.series" $seriesName }}
+  {{ $sortedSeriesPosts := sort $currentSeriesPosts "Params.series_order" }}
+  {{ $seriesColor := .Params.series_color | default "#6B5B47" }}
+  {{ $totalParts := .Params.series_total_parts | default 0 }}
+  {{ $publishedParts := len $sortedSeriesPosts }}
+  {{ $upcomingParts := .Params.series_upcoming }}
+  {{ $firstPost := index $sortedSeriesPosts 0 }}
 
-  <div class="series-group" style="border-left-color: {{ $seriesColor }};">
-    <h3 class="series-group-title" style="color: {{ $seriesColor }};">
-      {{ $seriesName }} Series{{ if gt $totalParts 0 }} ({{ $publishedParts
-      }}/{{ $totalParts }} published){{ end }}
-    </h3>
-    <ol class="series-group-list">
-      {{ range $sortedSeriesPosts }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        <span class="post-date">
-          — {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span
-        >
-      </li>
-      {{ end }} {{ range $upcomingParts }}
-      <li class="series-upcoming-item">
-        <span class="series-upcoming-title"
-          >{{ .title }} <span class="coming-soon-badge">Coming soon</span></span
-        >
-      </li>
-      {{ end }}
-    </ol>
-  </div>
+  <article class="library-book">
+    <a href="{{ $firstPost.RelPermalink }}" class="book-cover">
+      <div class="book-spine" style="background: {{ $seriesColor }};"></div>
+      <div class="book-content">
+        <h3 class="book-title">{{ $seriesName }}</h3>
+        <p class="book-meta">{{ $publishedParts }} chapter{{ if ne $publishedParts 1 }}s{{ end }}{{ if gt $totalParts $publishedParts }} · {{ sub $totalParts $publishedParts }} more coming{{ end }}</p>
+      </div>
+    </a>
+  </article>
   {{ end }} {{ end }}
 
-  <!-- Regular non-series posts -->
+  <!-- Individual Articles -->
   {{ if gt (len $regularPosts) 0 }}
-  <ul>
-    {{ range $regularPosts }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <span class="post-date">
-        — {{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span
-      >
-      {{ if .Draft }}<span class="draft-badge">[DRAFT]</span>{{ end }}
-    </li>
-    {{ end }}
-  </ul>
+  {{ range $regularPosts }}
+  <article class="library-article">
+    <a href="{{ .RelPermalink }}" class="article-link">
+      <h3 class="article-title">{{ .Title }}</h3>
+      <p class="article-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+        <span class="meta-separator">·</span>
+        <span>{{ .ReadingTime }} min</span>
+      </p>
+    </a>
+  </article>
   {{ end }}
-</nav>
+  {{ end }}
+</section>
 {{ end }}

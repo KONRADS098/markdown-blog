@@ -1,5 +1,15 @@
 {{ define "main" }}
   <article>
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/" class="breadcrumb-link">Library</a>
+      {{ if .Params.series }}
+      <span class="breadcrumb-separator">›</span>
+      <a href="/thoughts/" class="breadcrumb-link">{{ .Params.series }}</a>
+      {{ end }}
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">{{ .Title }}</span>
+    </nav>
+    
     <header>
       <h1 class="post-title">{{ .Title }}</h1>
       <p class="post-date">
@@ -9,8 +19,6 @@
         · {{ .ReadingTime }} min read
       </p>
     </header>
-    
-    {{ partial "series-nav.html" . }}
     
     <div class="post-content">
       {{ .Content }}

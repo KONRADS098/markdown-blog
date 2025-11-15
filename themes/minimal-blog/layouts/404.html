@@ -1,0 +1,37 @@
+{{ define "main" }}
+<article
+  style="
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-xxl) var(--content-padding);
+    text-align: center;
+  "
+>
+  <h1 style="font-size: var(--h1-size); margin-bottom: var(--space-lg)">404</h1>
+  <p
+    style="
+      font-size: var(--h3-size);
+      color: var(--secondary-color);
+      margin-bottom: var(--space-xl);
+    "
+  >
+    Page not found
+  </p>
+  <p style="color: var(--tertiary-color); margin-bottom: var(--space-lg)">
+    The page you're looking for doesn't exist.
+  </p>
+  <a
+    href="/"
+    style="color: var(--accent-color); text-decoration: none; font-weight: 500"
+  >
+    ← Return home
+  </a>
+</article>
+
+<script>
+  // Auto-redirect to home after 3 seconds
+  setTimeout(function () {
+    window.location.href = "/";
+  }, 3000);
+</script>
+{{ end }}

@@ -8,6 +8,33 @@
 
     <main id="main-content" role="main">{{ block "main" . }}{{ end }}</main>
 
+    {{/* Reading Controls */}}
+    <div class="reading-controls">
+      <button
+        class="control-button theme-toggle"
+        aria-label="Toggle theme"
+        title="Toggle theme (Light / Sepia / Dark)"
+      >
+        ◐
+      </button>
+      <div class="font-controls">
+        <button
+          class="control-button font-size-up"
+          aria-label="Increase font size"
+          title="Increase font size"
+        >
+          A+
+        </button>
+        <button
+          class="control-button font-size-down"
+          aria-label="Decrease font size"
+          title="Decrease font size"
+        >
+          A−
+        </button>
+      </div>
+    </div>
+
     {{/* Structured Data */}} {{ if .IsPage }}
     <script type="application/ld+json">
       {
